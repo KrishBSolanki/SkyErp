@@ -44,6 +44,10 @@
         box-shadow: 0 20px 45px rgba(15, 41, 66, 0.15);
     }
 
+    .tax-category-img {
+        top: -100px;
+    }
+
     .floating-shapes {
         position: absolute;
         inset: 0;
@@ -364,7 +368,7 @@
                     <div class="bg-[#F9FAFB] rounded-[28px] p-6 hover-card h-full flex flex-col">
                         <h4 class="text-2xl font-semibold text-[#0f2942] mb-3">Tax Category</h4>
                         <p class="text-[#6B7280] mb-6 flex-1">Map SKUs/services to categories for effortless calculations across invoices.</p>
-                        <img src="{% static 'images/tax-category-in-invoice.gif' %}" alt="Tax Category" class="rounded-2xl shadow-md">
+                        <img src="{% static 'images/tax-category-in-invoice.gif' %}" alt="Tax Category" class="rounded-2xl shadow-md tax-category-img">
                     </div>
                 </div>
                 <div id="tax-types" class="fade-up delay-2">

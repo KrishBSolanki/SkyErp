@@ -117,12 +117,44 @@
         .illustration-card {
             background: white;
             border-radius: 12px;
-            padding: 40px;
+            padding: 4px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
+            height: auto  ;
+        }
+
+        .mission-illustration {
+            padding: 16px;
             height: 100%;
+        }
+
+        .mission-illustration img {
+            width: 100%;
+            max-width: 480px;
+            max-height: 360px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .vision-illustration {
+            background: #FFF1E6;
+            padding: 24px;
+            border-radius: 20px;
+        }
+
+        .vision-illustration img {
+            width: 100%;
+            max-width: 460px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 16px;
+            object-fit: contain;
         }
         
         /* Vision Section */
@@ -239,34 +271,69 @@
             margin: 0;
         }
 
-        .digital-card {
+        .client-table-wrapper {
             background: #f6f9ff;
-            border-radius: 16px;
-            padding: 24px;
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            margin-bottom: 24px;
+            border-radius: 20px;
             border: 1px solid #e0e7ff;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12);
         }
 
-        .digital-card i {
-            font-size: 26px;
-            color: #2563EB;
+        .client-table {
+            width: 100%;
+            border-collapse: collapse;
         }
 
-        .digital-card a {
-            font-size: 16px;
-            font-weight: 600;
-            color: #1F2937;
-            text-decoration: none;
+        .client-table thead {
+            background: linear-gradient(135deg, #1f3b73, #2563eb);
+            color: #fff;
         }
 
-        .digital-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 18px 35px rgba(37, 99, 235, 0.15);
+        .client-table th,
+        .client-table td {
+            padding: 18px 24px;
+            text-align: left;
+            border-bottom: 1px solid #e0e7ff;
+        }
+
+        .client-table th {
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .client-table tbody tr:nth-child(even) {
             background: #fff;
+        }
+
+        .client-table tbody tr:nth-child(odd) {
+            background: #fefefe;
+        }
+
+        .client-table .category-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .category-edu {
+            background: rgba(37, 99, 235, 0.12);
+            color: #1f3b73;
+        }
+
+        .category-mfg {
+            background: rgba(249, 115, 22, 0.15);
+            color: #c05621;
+        }
+
+        .client-table small {
+            display: block;
+            color: #6B7280;
+            margin-top: 4px;
         }
 
         .easily-engage {
@@ -534,14 +601,8 @@
                     <p class="section-text">Our highly experienced team is working day and night to create innovative solutions that help organizations streamline their operations, enhance productivity, and achieve sustainable growth through seamless ERP integration.</p>
                 </div>
                 <div class="col-lg-6 row-lg-6">
-                    <div class="illustration-card">
-                        <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="150" cy="150" r="100" fill="#FFF1E6"></circle>
-                            <rect x="120" y="120" width="60" height="80" rx="6" fill="#2563EB"></rect>
-                            <circle cx="150" cy="100" r="30" fill="#F97316"></circle>
-                            <path d="M135 100 L150 85 L165 100" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <circle cx="150" cy="115" r="8" fill="#FFF"></circle>
-                        </svg>
+                    <div class="illustration-card mission-illustration">
+                        <img src="{% static 'images/mission.png' %}" alt="Mission illustration">
                     </div>
                 </div>
             </div>
@@ -553,14 +614,8 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 order-lg-1 order-2">
-                    <div class="illustration-card" style="background: #FFF1E6;">
-                        <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M50 250 L150 100 L250 250" stroke="#2563EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M80 250 L150 150 L220 250" stroke="#F97316" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <circle cx="150" cy="120" r="20" fill="#2563EB"></circle>
-                            <rect x="135" y="140" width="30" height="50" rx="4" fill="#2563EB"></rect>
-                            <path d="M100 200 L120 180 M180 180 L200 200" stroke="#F97316" stroke-width="4" stroke-linecap="round"></path>
-                        </svg>
+                    <div class="illustration-card vision-illustration">
+                        <img src="{% static 'images/vision.jpg' %}" alt="Vision illustration">
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-2 order-1">
@@ -573,79 +628,56 @@
         </div>
     </section>
 
-    <!-- Core Values Section -->
-    <section class="values-section">
-        <div class="container">
-            <div class="text-center">
-                <p class="values-label">Our Core Values</p>
-                <h2 class="values-title">Principles We Follow By Heart</h2>
-            </div>
-            <div class="row values-grid">
-                <div class="col-lg-6 col-md-6">
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h3 class="value-title">Commitment to Quality</h3>
-                        <p class="value-description">We deliver high-quality engineering services that meet the evolving needs of modern businesses, ensuring every solution is built to last and perform.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3 class="value-title">Strategic Team Expansion</h3>
-                        <p class="value-description">We help build and grow engineering teams that align with your business objectives, ensuring the right talent is in place for success.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h3 class="value-title">Process Optimization</h3>
-                        <p class="value-description">We implement best practices to streamline workflows, improve efficiency, and enhance overall productivity across your organization.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <h3 class="value-title">End-to-End Support</h3>
-                        <p class="value-description">From initial consultation to post-deployment maintenance, we provide comprehensive support to ensure every project is successful.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Educational Clients -->
+    <!-- Educational & Manufacturing Clients -->
     <section class="digital-modules">
         <div class="container">
             <div class="tittle">
-                <h2>Educational Clients</h2>
-                <p>Cloud management is how admins maintain control over everything that operates in a cloud: users, data, and applications.</p>
+                <h2>Educational &amp; Manufacturing Clients</h2>
+                <p>A snapshot of the institutes and enterprises that trust Sky ERP across education and manufacturing domains.</p>
             </div>
-            <div class="row justify-content-center g-4">
-                <div class="col-lg-5 col-md-6">
-                    <div class="digital-card">
-                        <i class="fas fa-cloud"></i>
-                        <div class="media-body">
-                            <a href="#">District Institute of Education &amp; Training (DIET's), Gujarat</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-md-6">
-                    <div class="digital-card">
-                        <i class="fas fa-hospital-alt"></i>
-                        <div class="media-body">
-                            <a href="#">Chaudhary Bansi Lal University</a>
-                          <p>     </p>
-                        </div>
-                    </div>
-                </div>
+            <div class="client-table-wrapper">
+                <table class="client-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Client</th>
+                            <th>Location</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="category-pill category-edu"><i class="fas fa-university"></i> Educational</span></td>
+                            <td>District Institute of Education &amp; Training (DIETs)</td>
+                            <td>Gujarat, India</td>
+                        </tr>
+                        <tr>
+                            <td><span class="category-pill category-edu"><i class="fas fa-university"></i> Educational</span></td>
+                            <td>Chaudhary Bansi Lal University</td>
+                            <td>Bhiwani, Haryana</td>
+                        </tr>
+                        <tr>
+                            <td><span class="category-pill category-mfg"><i class="fas fa-industry"></i> Manufacturing</span></td>
+                            <td>Metalix Cable Trays</td>
+                            <td>Hyderabad, Telangana</td>
+                        </tr>
+                        <tr>
+                            <td><span class="category-pill category-mfg"><i class="fas fa-industry"></i> Manufacturing</span></td>
+                            <td>Uzzala Bio Energy Solutions</td>
+                            <td>Ahmedabad, Gujarat</td>
+                        </tr>
+                        <tr>
+                            <td><span class="category-pill category-mfg"><i class="fas fa-industry"></i> Manufacturing</span></td>
+                            <td>Verdict Group</td>
+                            <td>Ahmedabad, Gujarat</td>
+                        </tr>
+                        <tr>
+                            <td><span class="category-pill category-mfg"><i class="fas fa-industry"></i> Manufacturing</span></td>
+                            <td>R &amp; R Synergies</td>
+                            <td>Hyderabad, Telangana</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>

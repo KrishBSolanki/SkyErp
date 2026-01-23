@@ -14,16 +14,21 @@
     }
 
     .dashboard-hero {
-        background: #F5F9FF;
+        background: linear-gradient(135deg, #0f1f3d 0%, #1b2f59 45%, #253c73 100%);
         padding: 96px 0 110px;
         position: relative;
+        overflow: hidden;
     }
 
     .dashboard-hero::after {
         content: '';
         position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at top right, rgba(255, 107, 53, 0.08), transparent 50%);
+        top: -50%;
+        right: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(47, 91, 255, 0.08) 0%, transparent 70%);
+        border-radius: 50%;
         pointer-events: none;
     }
 
@@ -43,20 +48,20 @@
     .dashboard-hero h1 {
         font-size: clamp(2.5rem, 4vw, 3.85rem);
         font-weight: 700;
-        color: #0F2A44;
+        color: #fdfeff;
         margin-bottom: 20px;
     }
 
     .dashboard-hero p {
         font-size: 1.1rem;
-        color: #64748B;
+        color: rgba(255, 255, 255, 0.8);
         margin-bottom: 32px;
     }
 
     .dashboard-cta {
         display: flex;
         flex-wrap: wrap;
-        gap: 16px;
+        top: -70px;
     }
 
     .dashboard-btn {
@@ -74,11 +79,24 @@
         background: #FF6B35;
         color: #fff;
         box-shadow: 0 18px 45px rgba(255, 107, 53, 0.35);
+
     }
 
     .dashboard-btn.primary:hover {
         transform: translateY(-4px);
         background: #E55A2B;
+    }
+
+    .dashboard-hero .dashboard-btn.primary {
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.65);
+        color: #fff;
+        box-shadow: none;
+    }
+
+    .dashboard-hero .dashboard-btn.primary:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #fff;
     }
 
     .dashboard-btn.secondary {
@@ -271,14 +289,14 @@
     }
 
     .dashboard-cta {
-        background: linear-gradient(135deg, #0F2A44 0%, #1A4D7A 100%);
+        
         color: #fff;
         padding: 92px 0;
         position: relative;
         overflow: hidden;
     }
 
-    .dashboard-cta::after {
+    /* .dashboard-cta::after {
         content: '';
         position: absolute;
         width: 320px;
@@ -287,7 +305,7 @@
         border-radius: 50%;
         right: -80px;
         top: -60px;
-    }
+    } */
 
     .dashboard-cta .container {
         position: relative;
@@ -300,7 +318,7 @@
     }
 
     .dashboard-cta p {
-        color: rgba(255, 255, 255, 0.85);
+        color:black;
         font-size: 1.05rem;
     }
 
@@ -361,12 +379,10 @@
         <div class="container">
             <div class="row align-items-center gy-5">
                 <div class="col-lg-6">
-                    <p class="hero-kicker">Sky ERP</p>
                     <h1>Dashboard</h1>
                     <p>Welcome to the Sky ERP Dashboard — your centralized view of Sales, Purchases, Inventory, Accounts, HR, Projects, CRM, and more. Get real-time visibility, automated workflows, and connected insights across every module.</p>
                     <div class="dashboard-cta">
                         <a href="{% url 'schedule_demo' %}" class="dashboard-btn primary">Schedule a live demo</a>
-                        <a href="https://demo.itfarmer.in/#login" target="_blank" class="dashboard-btn secondary">7 day free trial</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -397,8 +413,8 @@
                     <img src="{% static 'images/dashboard.png' %}" alt="Dashboard module view" class="img-fluid rounded-4 shadow" />
                 </div>
                 <div class="col-lg-6">
-                    <h2>Why choose Sky ERP Dashboard?</h2>
-                    <p class="lead">Connect every department under one intelligent layer, track KPIs in real time, and steer the business using live numbers rather than spreadsheets.</p>
+                    <h2>Sky ERP Dashboard Provides</h2>
+                    <p class="lead">Connects every department under one intelligent layer, track KPIs in real time, and steer the business using live numbers rather than spreadsheets.</p>
                     <ul class="dashboard-modules">
                         <li><i class="fas fa-calculator"></i> Accounts & Finance</li>
                         <li><i class="fas fa-shopping-cart"></i> Sales</li>
@@ -474,10 +490,10 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-6">
-                    <img src="{% static 'images/dashboard-thumb-1.png' %}" alt="Dashboard insights" />
+                    <img src="{% static 'images/Dashboard1.png' %}" alt="Dashboard insights" />
                 </div>
                 <div class="col-lg-6">
-                    <img src="{% static 'images/dashboard-thumb-2.png' %}" alt="Dashboard reports" />
+                    <img src="{% static 'images/Dashboard2.png' %}" alt="Dashboard reports" />
                 </div>
             </div>
         </div>
@@ -550,24 +566,18 @@
             </div>
         </div>
     </section>
-
+<!-- 
     <section class="dashboard-cta">
         <div class="container">
             <div class="row align-items-center gy-4">
                 <div class="col-lg-8">
-                    <p class="hero-kicker text-white">Get started</p>
-                    <h3>Let’s get ready for an empowering future with Sky ERP!</h3>
+                    <p class="hero-kicker text-black">Get started</p>
+                    <h3 class="text-black">Let’s get ready for an empowering future with Sky ERP!</h3>
                     <p>Centralize decisions, stay audit-ready, and deliver delightful employee and customer experiences.</p>
-                </div>
-                <div class="col-lg-4">
-                    <div class="dashboard-cta-actions">
-                        <a href="{% url 'schedule_demo' %}" class="dashboard-btn primary">Request a demo</a>
-                        <a href="https://demo.itfarmer.in/#login" target="_blank" class="dashboard-btn secondary">7 day free trial</a>
-                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 </main>
 
 <script>

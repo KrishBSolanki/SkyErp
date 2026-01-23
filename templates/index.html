@@ -198,19 +198,26 @@
         .hero-content {
             position: relative;
             z-index: 2;
+            max-width: 560px;
         }
 
         .hero-title {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
             color: var(--white);
-            line-height: 1.15;
+            line-height: 1.2;
             margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
         }
 
+        .hero-title span {
+            display: block;
+        }
+
         .hero-title .highlight-text {
             color: var(--accent-orange);
+            display: inline-block;
+            margin-left: 0.35rem;
         }
 
         .hero-description {
@@ -387,7 +394,7 @@
         /* =================== SECONDARY PRODUCTS =================== */
         .secondary-products-section {
             padding: 70px 0;
-            background: var(--light-bg);
+            background: #ffe9d6;
         }
 
         .secondary-product-card {
@@ -455,27 +462,55 @@
             font-size: 1.0625rem;
         }
 
-        .brand-placeholder {
+        .brand-slider {
+            overflow: hidden;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .brand-track {
+            display: flex;
+            gap: 2.5rem;
+            animation: brand-scroll 20s linear infinite;
+        }
+
+        .brand-logo {
+            min-width: 160px;
+            padding: 1.25rem 1.5rem;
+            border-radius: 16px;
             background: var(--light-gray);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            color: var(--text-light);
-            font-weight: 600;
-            font-size: 0.875rem;
-            transition: var(--transition);
-            height: 100px;
+            border: 1px solid var(--border-light);
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .brand-placeholder:hover {
-            background: var(--white);
-            border-color: var(--primary-blue);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-sm);
+        .brand-logo img {
+            max-width: 120px;
+            max-height: 60px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.85;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+
+        .brand-logo:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px rgba(15, 23, 42, 0.12);
+        }
+
+        .brand-logo:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        @keyframes brand-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
         }
 
         /* =================== INDUSTRIES TAB SECTION =================== */
@@ -967,8 +1002,8 @@
             <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
                 <div class="hero-content">
                     <h1 class="hero-title">
-                        All In One Platform<br>
-                        <span class="highlight-text">to run your business</span>
+                        <span>When data talks clearly,<br>decision move faster.</span>
+                        <span>That's <span class="highlight-text">SkyERP</span></span>
                     </h1>
                     <p class="hero-description">
                         Sky ERP unifies your Core Business Processes — Accounting, Procurement, Inventory, Supply-Chain, HRMS, CRM, and more into a Single Intelligent Platform.
@@ -1057,7 +1092,7 @@
                     <div class="icon-circle icon-orange">
                         <i class="fas fa-building fa-2x"></i>
                     </div>
-                    <h3 class="feature-title">Real Estate CRM</h3>
+                    <h3 class="feature-title">CRM</h3>
                     <p class="feature-description">Gain the right technologies to monitor, analyze and boost your team's efficiency</p>
                     <div class="feature-tools">
                         <span class="tool-badge"><i class="fas fa-project-diagram"></i> Project Mgmt</span>
@@ -1079,21 +1114,21 @@
         <div class="text-center mb-4">
             <h3 class="section-subtitle-alt">Also give a view to Sky ERP's other Products</h3>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-5 col-md-6 mb-3">
+        <div class="row justify-content-center g-4">
+            <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="secondary-product-card">
                     <div class="secondary-icon">
                         <i class="fas fa-boxes fa-3x"></i>
                     </div>
                     <div class="secondary-content">
-                        <h4>Stock Inventory</h4>
+                        <h4>Stocks</h4>
                         <a href="{% url 'stock' %}" class="secondary-link">
                             Explore Product <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-6 mb-3">
+            <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="secondary-product-card">
                     <div class="secondary-icon">
                         <i class="fas fa-industry fa-3x"></i>
@@ -1101,6 +1136,32 @@
                     <div class="secondary-content">
                         <h4>Manufacturing</h4>
                         <a href="{% url 'manufacturing' %}" class="secondary-link">
+                            Explore Product <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="secondary-product-card">
+                    <div class="secondary-icon">
+                        <i class="fas fa-project-diagram fa-3x"></i>
+                    </div>
+                    <div class="secondary-content">
+                        <h4>Projects</h4>
+                        <a href="{% url 'projects' %}" class="secondary-link">
+                            Explore Product <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="secondary-product-card">
+                    <div class="secondary-icon">
+                        <i class="fas fa-coins fa-3x"></i>
+                    </div>
+                    <div class="secondary-content">
+                        <h4>Asset Management</h4>
+                        <a href="{% url 'asset_management' %}" class="secondary-link">
                             Explore Product <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -1120,13 +1181,27 @@
         <div class="trust-description text-center">
             <p>Whether you are a Fortune 500 company or an innovative startup, we have perfect solutions to amplify your business growth at affordable rates</p>
         </div>
-        <div class="row justify-content-center align-items-center g-4">
-            <div class="col-lg-2 col-md-3 col-4"><div class="brand-placeholder">Logo 1</div></div>
-            <div class="col-lg-2 col-md-3 col-4"><div class="brand-placeholder">Logo 2</div></div>
-            <div class="col-lg-2 col-md-3 col-4"><div class="brand-placeholder">Logo 3</div></div>
-            <div class="col-lg-2 col-md-3 col-4"><div class="brand-placeholder">Logo 4</div></div>
-            <div class="col-lg-2 col-md-3 col-4"><div class="brand-placeholder">Logo 5</div></div>
-            <div class="col-lg-2 col-md-3 col-4"><div class="brand-placeholder">Logo 6</div></div>
+        <div class="brand-slider">
+            <div class="brand-track">
+                <div class="brand-logo"><img src="{% static 'images/metalix.png' %}" alt="Metalix"></div>
+                <div class="brand-logo"><img src="{% static 'images/uzzala.png' %}" alt="Uzzala"></div>
+                <div class="brand-logo"><img src="{% static 'images/verdict.webp' %}" alt="Verdict Group"></div>
+                <div class="brand-logo"><img src="{% static 'images/zrti.png' %}" alt="ZRTI"></div>
+                <div class="brand-logo"><img src="{% static 'images/aiiims.png' %}" alt="AIIMS"></div>
+                <div class="brand-logo"><img src="{% static 'images/iridm.png' %}" alt="IRIDM"></div>
+                <div class="brand-logo"><img src="{% static 'images/irimee.png' %}" alt="IRIMEE"></div>
+                <div class="brand-logo"><img src="{% static 'images/nair.jpg' %}" alt="NAIR"></div>
+
+                <!-- duplicate for seamless scroll -->
+                <div class="brand-logo"><img src="{% static 'images/metalix.png' %}" alt="Metalix"></div>
+                <div class="brand-logo"><img src="{% static 'images/uzzala.png' %}" alt="Uzzala"></div>
+                <div class="brand-logo"><img src="{% static 'images/verdict.webp' %}" alt="Verdict Group"></div>
+                <div class="brand-logo"><img src="{% static 'images/zrti.png' %}" alt="ZRTI"></div>
+                <div class="brand-logo"><img src="{% static 'images/aiiims.png' %}" alt="AIIMS"></div>
+                <div class="brand-logo"><img src="{% static 'images/iridm.png' %}" alt="IRIDM"></div>
+                <div class="brand-logo"><img src="{% static 'images/irimee.png' %}" alt="IRIMEE"></div>
+                <div class="brand-logo"><img src="{% static 'images/nair.jpg' %}" alt="NAIR"></div>
+            </div>
         </div>
     </div>
 </section>
@@ -1179,9 +1254,9 @@
                                 </div>
                             </div>
                             <div class="industry-item">
-                                <div class="industry-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <div class="industry-icon"><i class="fas fa-recycle"></i></div>
                                 <div class="industry-text">
-                                    <strong>Education:</strong> Simplify academic administration and student records.
+                                    <strong>Renewable Energy:</strong> Powering profits with clean, limitless energy.
                                 </div>
                             </div>
                             <div class="industry-item">
@@ -1245,7 +1320,7 @@
             <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                 <div class="support-item">
                     <div class="support-icon"><i class="fas fa-laptop-code"></i></div>
-                    <h4>Demo Specialist</h4>
+                    <h4>ERP Copilot</h4>
                     <p>Expert guidance for your needs</p>
                 </div>
             </div>
@@ -1267,42 +1342,7 @@
     </div>
 </section>
 
-<!-- =================== TESTIMONIALS =================== -->
-<section class="testimonials-section">
-    <div class="container">
-        <div class="section-header text-center">
-            <h2 class="section-title">Client's Testimonials</h2>
-            <p class="section-subtitle">Don't Listen To Us - Here are some Words By Our Clients</p>
-        </div>
 
-        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="testimonial-card">
-                        <div class="company-logo-placeholder">Company Logo</div>
-                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <p class="testimonial-text">"Sky ERP has transformed how we manage our operations. The integrated system has made our workflow seamless and efficient."</p>
-                        <div class="testimonial-author">
-                            <h5>John Doe</h5>
-                            <p>CEO, Tech Solutions Inc</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="testimonial-card">
-                        <div class="company-logo-placeholder">Company Logo</div>
-                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <p class="testimonial-text">"The best ERP solution we've implemented. The support team is exceptional and the features are exactly what we needed."</p>
-                        <div class="testimonial-author">
-                            <h5>Jane Smith</h5>
-                            <p>Operations Manager, Global Enterprises</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- =================== CTA BANNER =================== -->
 <section class="cta-banner-section">
@@ -1334,11 +1374,7 @@
                         Our Recent Blogs
                     </button>
                 </li>
-                <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#media-content" type="button">
-                        Sky ERP In Media
-                    </button>
-                </li>
+                
             </ul>
 
             <div class="tab-content">
@@ -1380,43 +1416,7 @@
                     </div>
                 </div>
 
-                <div class="tab-pane fade" id="media-content">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="media-card">
-                                <div class="media-logo-placeholder">Media Logo</div>
-                                <div class="media-content">
-                                    <h5>Business Magazine</h5>
-                                    <h4>Sky ERP Featured in Leading Publication</h4>
-                                    <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="media-card">
-                                <div class="media-logo-placeholder">Media Logo</div>
-                                <div class="media-content">
-                                    <h5>Tech News Portal</h5>
-                                    <h4>Innovation in ERP: Sky ERP Leads the Way</h4>
-                                    <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="media-card">
-                                <div class="media-logo-placeholder">Media Logo</div>
-                                <div class="media-content">
-                                    <h5>Business Daily</h5>
-                                    <h4>Transforming Enterprises with Smart Automation</h4>
-                                    <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center mt-4">
-                        <a href="{% url 'portfolio' %}" class="btn-outline-primary">Check All Media Coverage</a>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
